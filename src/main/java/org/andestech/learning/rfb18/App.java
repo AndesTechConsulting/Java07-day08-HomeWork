@@ -1,10 +1,55 @@
 package org.andestech.learning.rfb18;
 
 
-public class App 
+import java.io.*;
+import java.util.ArrayList;
+import java.util.Comparator;
+
+public class App
 {
     public static void main( String[] args )
     {
+        Account ac;
+        ArrayList<String> accountList = new ArrayList<>(50);
+        for(int i = 0; i < 50; i++){
+            ac = new Account();
+            accountList.add(ac.getAccount());
+        }
+
+        accountList.sort(new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                return o1.substring(4).compareTo(o2.substring(4));
+            }
+        });
+
+        try(DataOutputStream dos =
+                    new DataOutputStream(
+                            new FileOutputStream("src/data/accounts.bin")))
+        {
+            for(Object o:accountList){
+                dos.writeBytes(o.toString());
+            }
+
+        }
+        catch (IOException ex){ex.printStackTrace();}
+
+//        for(Object o: accountList){
+//            System.out.println(o);
+//        }
+
+        try(DataInputStream dis =
+                    new DataInputStream(
+                            new FileInputStream("src/data/accounts.bin")))
+        {
+            String s = dis.readLine();
+
+            System.out.printf("%16s",s);
+
+        }
+        catch (IOException ex){ex.printStackTrace();}
+
+
         /**
          * TODO:
          *
