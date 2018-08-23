@@ -59,7 +59,7 @@ public class App {
             }
         }
 
-        try (FileWriter fw = new FileWriter(file1)) {
+        try (FileWriter fw = new FileWriter(file2)) {
                 for (String string : ArrayList()){
                     return fw;
             };
