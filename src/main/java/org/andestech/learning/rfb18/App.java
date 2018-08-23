@@ -1,10 +1,12 @@
 package org.andestech.learning.rfb18;
 
 
-public class App 
-{
-    public static void main( String[] args )
-    {
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Random;
+
+public class App {
+    public static void main(String[] args) {
         /**
          * TODO:
          *
@@ -20,6 +22,15 @@ public class App
          *
          */
 
+        ArrayList<String> AccountList = new ArrayList<>(50);
+        for (int i = 0; i < 50; i++) {
+            Accounts acc = new Accounts();
+            AccountList.add(acc.getAccount());
+
+        }
+        for (Object o: AccountList){
+            System.out.println(o);}
+    }
 
     }
-}
+
