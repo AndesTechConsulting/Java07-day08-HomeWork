@@ -30,6 +30,6 @@ public class App
         {
             System.out.println(cntsLs.counts.get(i));
         }
-
+        Recorder.recorInCSV(cntsLs.counts);
     }
 }
