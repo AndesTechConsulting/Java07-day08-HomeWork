@@ -1,7 +1,9 @@
 package org.andestech.learning.rfb18;
 
 
-public class App 
+import java.util.Collections;
+
+public class App
 {
     public static void main( String[] args )
     {
@@ -20,6 +22,14 @@ public class App
          *
          */
 
+        CountsList cntsLs = new CountsList(50);
+        CountComparator countComparator = new CountComparator();
+        Collections.sort(cntsLs.counts, countComparator);
+        System.out.println("----------------------------------------");
+        for(int i = 0; i < cntsLs.counts.size(); i++)
+        {
+            System.out.println(cntsLs.counts.get(i));
+        }
 
     }
 }
